@@ -61,9 +61,7 @@ ylim([-0.4E6, 2.75E6])
 
 ax2 = nexttile;
 histogram(gca,protein_input_start,9,'Normalization','probability') % 9,10 is best?
-%set(gca, 'YScale', 'log')
 xlim([-0.4E6, 2.75E6])
-%xlabel('protein level (au)')
 set(gca,'view',[90 -90])
 set(gcf,'Position',[0 0 600 200])
 ylim([0 0.45])

@@ -4,7 +4,6 @@ clc
 
 %% Part 1: Read and display data
 
-% embryo 1
 load('./data/translation_rate/translation_rate_embryo1/translation_rate_embryo1_lin.mat');
 load('./data/translation_rate/translation_rate_embryo1/CompiledParticles.mat')
 final_frame = 82; % embryo 1
@@ -132,7 +131,6 @@ for i = 1:length(c)
     if all(c{i}~=1)
     x = v(c{i},1);
     y = v(c{i},2);
-    %a = processed_data(frame_plot).SpotFluo(i);
     a = processed_data(frame_plot).NuclearFluo(i);
     patch(x,y,a);
     colorbar
@@ -172,8 +170,6 @@ spot_fluo_ins= zeros(length(sch_pass),length(time_point_final));
 nuclei_fluo_output = zeros(length(sch_pass),length(time_point_final));
 spot_fluo_input = zeros(length(sch_pass),length(time_point_final));
 
-%trace_num = [281, 279, 275, 269, 261, 259, 248, 231, 168, 50, 27];
-%trace_num = 248;
 trace_num = 27;
 
 for i = trace_num
@@ -194,16 +190,14 @@ for i = trace_num
     spot_fluo_ins(i,:) = spot_interp_avr;
     nuclei_fluo_ins(i,:) = nuclei_interp_avr;
 
-    %spot_fluo_input(i,:) = movmean(spot_interp_avr,15);
     % use integrated mRNA level as input
     spot_fluo_input(i,:) = int_spot_interp;
-    nuclei_fluo_output(i,:) = nuclei_interp_avr; %movmean(nuclei_interp_avr,15);
+    nuclei_fluo_output(i,:) = nuclei_interp_avr;
 
     spot_temp = spot_fluo_input(i,:);
     if sum(spot_temp) > 0
         
         fig = figure;
-        %plot(x,spot_temp,'-o',time_point_final,spot_interp,'-x');
 
         plot(time_point_final,spot_interp_avr,'-','LineWidth',2)
         ylabel('MS2 spot (instantaneous transcription rate, au)')
@@ -219,9 +213,6 @@ for i = trace_num
 
         xlabel('time (min)')
         xlim([0 28])
-        
-        %saveas(fig,['./figure//int_traces_',num2str(i),'.jpg'])  
-
         pbaspect([2 1 1])
 
     end
@@ -288,7 +279,6 @@ for i = trace_num
 
                 hold on
                 plot(time_point_final(start_frame+1:length(time_point_final)),int_protein_temp(start_frame+1:length(time_point_final)),'-','Color',[180 180 180]/256,'LineWidth',1)
-                %plot(time_point_final,nuclei_temp,'-b','LineWidth',2);
                 xlabel('time (min)')
                 ylabel('Fluorescence (AU)')
                 box on

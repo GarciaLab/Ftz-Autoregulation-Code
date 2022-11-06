@@ -170,7 +170,7 @@ for i = 1:length(sch_pass)
     %spot_fluo_input(i,:) = movmean(spot_interp_avr,15);
     % use integrated mRNA level as input
     spot_fluo_input(i,:) = int_spot_interp;
-    nuclei_fluo_output(i,:) = nuclei_interp_avr;%movmean(nuclei_interp_avr,15);
+    nuclei_fluo_output(i,:) = nuclei_interp_avr;
 
     spot_temp = spot_fluo_input(i,:);
 
@@ -243,5 +243,4 @@ title('Estimating \alpha')
 xlabel('Estimated \alpha')
 ylabel('Frequency')
 xlim([0 0.2])
-%ylim([0 0.3])
 pbaspect([3 2 1])

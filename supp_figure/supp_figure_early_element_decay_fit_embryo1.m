@@ -133,11 +133,9 @@ for i = 1:length(c)
     if all(c{i}~=1)
     x = v(c{i},1);
     y = v(c{i},2);
-    %a = processed_data(frame_plot).SpotFluo(i);
     a = processed_data(frame_plot).NuclearFluo(i);
     patch(x,y,a);
     colorbar
-    %caxis([0 4E6])
     end
 end
 
