@@ -7,23 +7,24 @@ clc
 spot_fluo_full = [];
 %% loop through three embryos
 
-for m = 1:3
+for m = 1:6
 %% Part 1: Read and display data
 
-if m == 1
-    final_frame = 76;
-    frame_plot = final_frame; % for quality control
+switch m
+    case 1
+        final_frame = 96;
+        frame_plot = final_frame; % for quality control
+        
+        load(['./data/late_dynamics_embryo1/late_dynamics_embryo1_lin.mat']);
+        load('./data/late_dynamics_embryo1/CompiledParticles.mat')
     
-    load(['./data/late_dynamics_embryo1/late_dynamics_embryo1_lin.mat']);
-    load('./data/late_dynamics_embryo1/CompiledParticles.mat')
+        time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
+    
+        x_pos_max = 395;
+        x_pos_min = 220;
 
-    time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
-
-    x_pos_max = 325;
-    x_pos_min = 205;
-else 
-    if m == 2
-        final_frame = 109;
+    case 2
+        final_frame = 86;
         frame_plot = final_frame; % for quality control
 
         load(['./data/late_dynamics_embryo2/late_dynamics_embryo2_lin.mat']);
@@ -31,21 +32,59 @@ else
 
         time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
 
-        x_pos_max = 350;
-        x_pos_min = 215;
-        else
-            final_frame = 82;
-            frame_plot = final_frame; % for quality controlx
-    
-            load(['./data/late_dynamics_embryo3/late_dynamics_embryo3_lin.mat']);
-            load('./data/late_dynamics_embryo3/CompiledParticles.mat')
-    
-            time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
-    
-            x_pos_max = 350;
-            x_pos_min = 220;
-    end
+        x_pos_max = 320;
+        x_pos_min = 170;
+
+    case 3
+        final_frame = 71;
+        frame_plot = final_frame; % for quality controlx
+
+        load(['./data/late_dynamics_embryo3/late_dynamics_embryo3_lin.mat']);
+        load('./data/late_dynamics_embryo3/CompiledParticles.mat')
+
+        time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
+
+        x_pos_max = 250;
+        x_pos_min = 50;
+
+    case 4
+        final_frame = 70;
+        frame_plot = final_frame; % for quality controlx
+
+        load(['./data/late_dynamics_embryo4/late_dynamics_embryo4_lin.mat']);
+        load('./data/late_dynamics_embryo4/CompiledParticles.mat')
+
+        time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
+
+        x_pos_max = 300;
+        x_pos_min = 150;
+
+    case 5
+        final_frame = 70;
+        frame_plot = final_frame; % for quality controlx
+
+        load(['./data/late_dynamics_embryo5/late_dynamics_embryo5_lin.mat']);
+        load('./data/late_dynamics_embryo5/CompiledParticles.mat')
+
+        time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
+
+        x_pos_max = 300;
+        x_pos_min = 125;
+     
+    case 6
+        final_frame = 90;
+        frame_plot = final_frame; % for quality controlx
+
+        load(['./data/late_dynamics_embryo6/late_dynamics_embryo6_lin.mat']);
+        load('./data/late_dynamics_embryo6/CompiledParticles.mat')
+
+        time = ElapsedTime(1:final_frame)-ElapsedTime(final_frame);
+
+        x_pos_max = 340;
+        x_pos_min = 180;
+        
 end
+
 %% Part 2: Quality check on nuclei tracking
 
 

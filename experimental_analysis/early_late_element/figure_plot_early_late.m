@@ -36,10 +36,7 @@ xlabel('time (min)')
 pbaspect([3 2 1])
 
 
-%% Plot original data (not working)
-
-%correction_factor = 1.75; % 
-correction_factor = 15/10*0.87/0.64;
+% Plot original data (not working)
 
 fig = figure;
 hold on
@@ -48,12 +45,12 @@ boundedline(early_dynamics.time_point_final,early_dynamics.spot_fluo_movmean,ear
 ylabel('early element level (au)')
 
 
-plot(late_dynamics.time_point_final,late_dynamics.spot_fluo_movmean*correction_factor,'LineWidth',2);
-boundedline(late_dynamics.time_point_final,late_dynamics.spot_fluo_movmean*correction_factor,late_dynamics.spot_fluo_ste_movmean*correction_factor,'-','nan', 'gap','alpha');
+plot(late_dynamics.time_point_final,late_dynamics.spot_fluo_movmean,'LineWidth',2);
+boundedline(late_dynamics.time_point_final,late_dynamics.spot_fluo_movmean,late_dynamics.spot_fluo_ste_movmean,'-','nan', 'gap','alpha');
 ylabel('late element level (au)')
 
 xlim([-20 -2])
 xlabel('time (min)')
-ylim([0 1.25E5])
+ylim([0 8.5E4])
 
 pbaspect([3 2 1])

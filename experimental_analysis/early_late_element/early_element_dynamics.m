@@ -174,6 +174,13 @@ end
 
 spot_fluo_full = [spot_fluo_full spot_fluo_ins'];
 
+
+% Plot result for individual embryos
+spot_fluo_ins_mean = mean(spot_fluo_ins,1);
+spot_fluo_ins_movmean = movmean(spot_fluo_ins_mean,15);
+spot_fluo_ins_ste = std(spot_fluo_ins,1,1)/sqrt(size(spot_fluo_ins,1));
+spot_fluo_ins_ste_movmean = movmean(spot_fluo_ins_ste,15);
+
 end
 
 flag = sum(spot_fluo_full,1) > 0;
